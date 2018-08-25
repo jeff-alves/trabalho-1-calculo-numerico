@@ -4,6 +4,6 @@ function r = raizes (c)
   # https://octave.org/doc/v4.2.0/Finding-Roots.html
   # https://www.mathworks.com/help/matlab/math/roots-of-polynomials.html
 
-  r = zeros(3); # só teste...
+  r = roots(c); # função do octave, só teste...
 
 endfunction
