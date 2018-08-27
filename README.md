@@ -22,4 +22,4 @@ Rodar o arquivo com o nome do metodo escolhido, passando os parametros nescessá
 
 **Exemplo:**
 
-    octave run_falsa_posicao.m f='func.txt' a='[-50, -1, 0, 0.69311, 1, 2, 3]' t='10^-5' i='[2,3]' max='50'
+    octave run_falsa_posicao.m f='testes/func.txt' a='[-50, -1, 0, 0.69311, 1, 2, 3]' t='10^-5' i='[2,3]' max='50'
