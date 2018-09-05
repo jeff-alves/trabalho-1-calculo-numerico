@@ -1,4 +1,4 @@
-function y = calcular (string, x)
+function y = calcular (string, x, a=null)
 
   y = eval(string);
 

@@ -10,8 +10,7 @@ max_it = param.max;
 
 for ajuste = param.a
     printf("#############################\n");
-    tmp_func = strrep(funcao, 'a', num2str(ajuste));
-    ajuste
-    y = falsa_posicao(tmp_func, tolerancia, intervalo, max_it)
+    a = ajuste;
+    [y, k] = falsa_posicao(funcao, ajuste, tolerancia, intervalo, max_it)
 endfor
 printf("#############################\n");
