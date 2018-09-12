@@ -12,6 +12,6 @@ max_it = param.max;
 for ajuste = param.a
     printf("#############################\n");
     ajuste
-    [d, k] = falsa_posicao(f, ajuste, tolerancia, intervalo, max_it)
+    [d, k, ea] = falsa_posicao(f, ajuste, tolerancia, intervalo, max_it)
 endfor
 printf("#############################\n");

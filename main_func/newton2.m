@@ -1,4 +1,4 @@
-function [d, k, ea] = newton(f, fd, ajuste, tolerancia, inicio, max_it)
+function [d, k, ea] = newton2(f, fd, ajuste, tolerancia, inicio, max_it)
 
   tolerancia = vpa(tolerancia);
   ajuste = vpa(ajuste);
@@ -12,24 +12,25 @@ function [d, k, ea] = newton(f, fd, ajuste, tolerancia, inicio, max_it)
     return
   endif
 
-  x0 = inicio;
+  fd_i = vpa(fd(inicio, ajuste));
+  old = inicio;
   while (k <= max_it)
 
-    f_x0 =  vpa(f (x0, ajuste));
-    fd_x0 = vpa(fd(x0, ajuste));
+    f_x0 =  vpa(f (old, ajuste));
+    #fd_x0 = vpa(fd(old, ajuste));
 
-    x1 = x0 - ( f_x0 / fd_x0 );
+    x1 = old - ( f_x0 / fd_i );
     
     f_x1 =  vpa(f (x1, ajuste));
 
-    #if (abs(f_x1) < tolerancia) || (abs(x1 - x0) <= tolerancia)
-    ea = abs(x1 - x0);
+    #if (abs(f_x1) < tolerancia) || (abs(x1 - old) <= tolerancia)
+    ea = abs(x1 - old);
     if (ea <= tolerancia)
       d = simplify(x1);
       return
     endif
 
-    x0 = x1;
+    old = x1;
     k+=1;
   endwhile
   k-=1;

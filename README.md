@@ -17,7 +17,7 @@ Desenvolva um sistema para calcular esse deslocamento x da extremidade de um fog
 Rodar o arquivo com o nome do metodo escolhido, passando os parametros nescessários:
 
     - f = Função a ser usada f(x,a);
-    - a = Lista contendo ajustes para a função (usar "a" para variavel de ajuste);
+    - a = Lista contendo ajustes para a função (usar "a" para variavel de ajuste na função acima);
     - t = Tolerancia permitida de erro para considerar como raiz;
     - i = Intervalo para busca;
     - max = numero maximo de iterações;
@@ -31,7 +31,7 @@ Rodar o arquivo com o nome do metodo escolhido, passando os parametros nescessá
 Rodar o arquivo "run_newton.m", passando os parametros nescessários:
 
     - f = Função a ser usada f(x,a);
-    - a = Lista contendo ajustes para a função (usar "a" para variavel de ajuste);
+    - a = Lista contendo ajustes para a função (usar "a" para variavel de ajuste na função acima);
     - t = Tolerancia permitida de erro para considerar como raiz;
     - i = Chute inicial;
     - max = numero maximo de iterações;
@@ -45,7 +45,7 @@ Rodar o arquivo "run_newton.m", passando os parametros nescessários:
 Rodar o arquivo "run_newton2.m", passando os parametros nescessários:
 
     - f = Função a ser usada f(x,a);
-    - a = Lista contendo ajustes para a função (usar "a" para variavel de ajuste);
+    - a = Lista contendo ajustes para a função (usar "a" para variavel de ajuste na função acima);
     - t = Tolerancia permitida de erro para considerar como raiz;
     - i = Chute inicial;
     - max = numero maximo de iterações;

@@ -13,10 +13,7 @@ max_it = param.max;
 
 for ajuste = param.a
     printf("#############################\n");
-    [d, k, ea] = newton(f, fd, ajuste, tolerancia, inicio, max_it);
-    printf("Ajuste:    %f\n",ajuste);
-    printf("Distancia: %s\n",char(d));
-    printf("EA:        %s\n",char(ea));
-    printf("Iterações: %i\n",k);
+    ajuste
+    [d, k, ea] = newton2(f, fd, ajuste, tolerancia, inicio, max_it)
 endfor
 printf("#############################\n");
