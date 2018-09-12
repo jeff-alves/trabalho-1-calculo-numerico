@@ -1,42 +1,53 @@
-function [y, k] = falsa_posicao(funcao, ajuste, tolerancia, intervalo, max_it)
+function [d, k] = falsa_posicao(f, ajuste, tolerancia, intervalo, max_it)
   
-  a = intervalo(1);
-  b = intervalo(2);
+  tolerancia = abs(sym(tolerancia, 'f'));
+  ajuste = sym(ajuste, 'f');
+  a = sym(intervalo(1), 'f');
+  b = sym(intervalo(2), 'f');
   k = 1;
 
-  if b-a <= tolerancia
-    y = [a, b];
+  if abs(b-a) <= tolerancia
+    d = [a, b];
     return
-  elseif abs(calcular(funcao, a, ajuste)) < tolerancia
-    y = [a];
+  elseif abs(f(a, ajuste)) < tolerancia
+    d = [a];
     return
-  elseif abs(calcular(funcao, b, ajuste)) < tolerancia
-    y = [b];
+  elseif abs(f(b, ajuste)) < tolerancia
+    d = [b];
     return
   endif
 
   while (k <= max_it)
-    x = (a*calcular(funcao, b, ajuste) - b*calcular(funcao, a, ajuste)) / (calcular(funcao, b, ajuste)-calcular(funcao, a, ajuste));
-    
-    if abs(calcular(funcao, x, ajuste)) < tolerancia
-      y = [x];
+    fa = vpa(f(a, ajuste));
+    fb = vpa(f(b, ajuste));
+    x = vpa((a*fb - b*fa) / (fb-fa));
+    fx = vpa(f(x, ajuste));
+
+
+    if abs(fx) < tolerancia
+      d = [x];
       return
     endif
 
-    if calcular(funcao, a, ajuste) * calcular(funcao, x, ajuste) > 0
+    if imag(fx)
+      d = 'Não é possivel obter o sinal de um número imaginário em f(x).';
+      return
+    endif
+    #if sign(fa * fx) > 0
+    if sign(fx) > 0
       a = x;
     else
       b = x;
     endif
 
-    if b-a <= tolerancia
-      y = [a, b];
+    if abs(b-a) <= tolerancia
+      d = [a, b];
       return
     endif
     
     k+=1;
   endwhile
   k-=1;
-  y = 'Limite de iterações atingido, sem resultados.';
+  d = 'Limite de iterações atingido, sem resultados.';
 
 endfunction

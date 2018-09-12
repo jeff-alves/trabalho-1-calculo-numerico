@@ -5,13 +5,15 @@ param = parse_args(argv, nargin); #converte os parametros em variaveis nomeadas
 
 syms x a
 f(x,a) = cell2sym({param.f})
+fd = diff(f)
+
 tolerancia = param.t;
-intervalo = param.i;
+inicio = param.i;
 max_it = param.max;
 
 for ajuste = param.a
     printf("#############################\n");
     ajuste
-    [d, k] = falsa_posicao(f, ajuste, tolerancia, intervalo, max_it)
+    [d, k] = newton(f, fd, ajuste, tolerancia, inicio, max_it)
 endfor
 printf("#############################\n");
